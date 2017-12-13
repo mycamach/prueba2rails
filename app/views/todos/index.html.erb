@@ -9,13 +9,19 @@
         <%= image_tag todo.photo, class: 'card-img-top' %>
         <div class="body">
           <h3> <%= todo.title %> </h3>
+
+          <% todo.tasks.each do |task| %>
+            <%if task.completed %>
+              <%= link_to "ToDo listo", task_path(task.id), class: 'btn btn-success', method: :patch %>
+            <% else %>
+              <%= link_to "ToDo NO listo", task_path(task.id), class: 'btn btn-danger', method: :patch %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
     <% end %>
-
     <div class="w-100" style="margin-top: 20px"></div>
     <% end %>
   </div>
-
 </div>
