@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :todos, :only => [:index]
+  resources :todos, :only => [:index, :show]
   root 'todos#index'
   resources :tasks, :only => [:create, :update]
 
