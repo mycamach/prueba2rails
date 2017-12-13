@@ -6,7 +6,5 @@ before_action :authenticate_user!
 
   def show
     @todo = Todo.find(params[:id])
-    @tasks = Task.all
-    @user = current_user
   end
 end

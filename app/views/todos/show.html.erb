@@ -1,7 +1,9 @@
-<% @tasks.each do |task| %>
-  <% if task.user %>
-    <%= task.user.name %>
-  <% else %>
-    <%= 'Ningún usuario ha completado esta tarea aún' %>
-  <% end %>
+<div class="container">
+
+  <ul> Usuarios que han terminado esta tarea: </ul>
+
+<% @todo.tasks.where(completed: true).each do |task| %>
+  <li> <%= task.user.name %>
 <% end %>
+
+</div>
