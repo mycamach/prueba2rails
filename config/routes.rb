@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :todos, :only => [:index, :show]
   root 'todos#index'
-  resources :tasks, :only => [:create, :update]
+  resources :tasks, :only => [:update]
 
   devise_for :users, controllers: {
       registrations: 'users/registrations'

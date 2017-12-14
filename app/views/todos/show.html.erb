@@ -1,6 +1,28 @@
 <div class="container">
 
-  <ul> Usuarios que han terminado esta tarea: </ul>
+<h2> PRIMEROS USUARIOS EN COMPLETAR LA TAREA '<%= @todo.title.upcase %>': </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> Usuario </th>
+      <th scope="col"> Foto </th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <tr>
+    <% @todo.tasks.order(updated_at: :desc).take(5).each do |task| %>
+  <td><%= task.user.name %></td>
+  <tr>
+  <td> <%= image_tag task.user.photo %> </td>
+  </tr>
+<% end %>
+</tr>
+  </tbody>
+</table>
+
+  <h2> USUARIOS QUE HAN TERMINADO ESTA TAREA: </h2>
 
 <% @todo.tasks.where(completed: true).each do |task| %>
   <li> <%= task.user.name %>
