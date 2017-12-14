@@ -11,12 +11,13 @@
   </thead>
   <tbody>
 
-  <tr>
     <% @todo.tasks.order(updated_at: :desc).take(5).each do |task| %>
+    <tr>
   <td><%= task.user.name %></td>
-  <tr>
+
+
   <td> <%= image_tag task.user.photo %> </td>
-  </tr>
+</tr>
 <% end %>
 </tr>
   </tbody>
