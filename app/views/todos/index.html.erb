@@ -1,26 +1,26 @@
-<h1>ToDos dieciocheros, ¡TIKI TIKI TIIII!</h1>
-
 <div class="container">
+  <h1>Tareas dieciocheras, ¡TIKI TIKI TIIII!</h1>
   <div class="row">
     <% @user.tasks.each_slice(3) do |row| %>
-    <% row.each do |task| %>
-    <div class="col">
-      <div class="card">
-        <%= image_tag task.todo.photo, class: 'card-img-top' %>
-        <div class="body">
-          <h3> <%= link_to task.todo.title, todo_path(task.todo) %> </h3>
-
-            <% if task.completed  %>
-              <%= link_to "ToDo listo", task_path(task.id), class: 'btn btn-success', method: :patch %>
-            <% else %>
-              <%= link_to "ToDo NO listo", task_path(task.id), class: 'btn btn-danger', method: :patch %>
-            <% end %>
-
+      <% row.each do |task| %>
+        <div class="col">
+          <div class="card">
+            <%= image_tag task.todo.photo, class: 'card-img-top' %>
+              <div class="card text-center">
+                <div class="body">
+                  <h4 class="card-title mb-3"> <%= link_to task.todo.title, todo_path(task.todo) %> </h4>
+                    <h6 class="card-subtitle mb-2 text-muted"> Actualizado hace:  <%= time_ago_in_words task.updated_at %> </h6>
+                    <% if task.completed  %>
+                      <%= link_to "Tarea lista", task_path(task.id), class: 'btn btn-success', method: :patch %>
+                    <% else %>
+                      <%= link_to "Tarea NO lista", task_path(task.id), class: 'btn btn-danger', method: :patch %>
+                    <% end %>
+                </div>
+              </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <% end %>
-    <div class="w-100" style="margin-top: 20px"></div>
+      <% end %>
+    <div class="w-100"></div>
     <% end %>
   </div>
 </div>

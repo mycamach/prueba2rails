@@ -3,7 +3,7 @@
 
   <span class="navbar-text">
     <% if user_signed_in? %>
-      <%= "¡Bienvenido #{current_user.name}!" %>
+      <%= "¡Bienvenid@ #{current_user.name}!" %>
     <% else %>
       <a href="<%= user_session_path %>"></a>
     <% end %>

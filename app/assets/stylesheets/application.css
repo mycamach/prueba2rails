@@ -15,3 +15,9 @@
  */
 
 nav { margin-bottom: 30px }
+
+div.card { padding-bottom: 15px }
+
+h4.card-title { margin-top: 10px }
+
+div.w-100 { margin-top: 20px }
